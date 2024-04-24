@@ -11,6 +11,7 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.apache.kafka.clients.producer.ProducerConfig.*;
@@ -29,12 +30,12 @@ public class KafkaLogProducerConfiguration {
     }
 
     @Bean
-    public ProducerFactory<String, Log> machineProducerFactory() {
+    public ProducerFactory<String, List<Log>> machineProducerFactory() {
         return new DefaultKafkaProducerFactory<>(produceConfig());
     }
 
     @Bean
-    public KafkaTemplate<String, Log> machineKafkaTemplate(ProducerFactory<String, Log> machineProducerFactory) {
+    public KafkaTemplate<String, List<Log>> machineKafkaTemplate(ProducerFactory<String, List<Log>> machineProducerFactory) {
         return new KafkaTemplate<>(machineProducerFactory);
     }
 }

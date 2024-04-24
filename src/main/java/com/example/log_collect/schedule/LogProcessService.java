@@ -18,13 +18,14 @@ import java.util.List;
 public class LogProcessService {
     private final LogRepository repository;
     private final LogProcessorFeign feign;
-    private final KafkaTemplate<String, Log> kafkaTemplate;
+    private final KafkaTemplate<String, List<Log>> kafkaTemplate;
 
     private static final Logger log = LoggerFactory.getLogger(LogProcessService.class);
 
-    public LogProcessService(LogRepository repository, LogProcessorFeign feign, KafkaTemplate<String, Log> kafkaTemplate) {
+    public LogProcessService(LogRepository repository, LogProcessorFeign feign, KafkaTemplate<String, List<Log>> kafkaTemplate) {
         this.repository = repository;
         this.feign = feign;
+
         this.kafkaTemplate = kafkaTemplate;
     }
 
@@ -60,9 +61,8 @@ public class LogProcessService {
             }
         } catch (Exception ex) {
             log.error("error when sending logs to third party. try with kafka");
-            for (Log entity : unprocessLogs) {
-                kafkaTemplate.send("LOG_TOPIC", entity);
-            }
+            kafkaTemplate.send("LOG_TOPIC", unprocessLogs);
+
         }
     }
 }
