@@ -9,18 +9,12 @@ public class CommonTestData {
     public static final String DEFAULT_STRING = "AAAAAAAAAAAAAAA";
     public static final String UPDATED_STRING = "BBBBBBBBBBBBBBB";
 
-    public static final Boolean DEFAULT_BOOLEAN = true;
-    public static final Boolean UPDATED_BOOLEAN = false;
-
-    public static final String DEFAULT_ID = UUID.randomUUID().toString();
-    public static final String UPDATED_ID = UUID.randomUUID().toString();
-
     public static final String DEFAULT_USERNAME = "09924664362";
     public static final String DEFAULT_PASSWORD = "123456789";
 
     public static final LogType DEFAULT_TYPE = LogType.INFO;
     public static final LogType UPDATED_TYPE = LogType.WARNING;
-    
+
 
     public static LoginDTO loginDTO() {
         LoginDTO loginDTO = new LoginDTO();
