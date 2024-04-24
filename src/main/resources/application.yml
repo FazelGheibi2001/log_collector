@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: log-service
+  kafka:
+    bootstrap-servers: http://localhost:9092
+  datasource:
+    url: jdbc:postgresql://localhost:5432/log
+    username: log_user
+    password: '123456789'
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+server:
+  port: 8028
+  error:
+    whitelabel:
+      enabled: true
+    include-message: ALWAYS
+    include-stacktrace: ON_PARAM
+feign:
+  httpclient:
+    enabled: true
+  okhttp:
+    enabled: true
+client:
+  log-processor:
+    baseUrl: 'http://localhost:8417'
