@@ -2,7 +2,6 @@ package com.example.log_collect.dtos;
 
 import com.example.log_collect.models.enums.LogType;
 import com.example.log_collect.parent.BaseDTO;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;

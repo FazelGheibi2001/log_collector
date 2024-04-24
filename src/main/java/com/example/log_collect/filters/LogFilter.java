@@ -1,7 +1,6 @@
 package com.example.log_collect.filters;
 
 import com.example.log_collect.models.enums.LogType;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
 
