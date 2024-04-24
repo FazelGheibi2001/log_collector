@@ -20,6 +20,7 @@ public class CommonTestData {
 
     public static final LogType DEFAULT_TYPE = LogType.INFO;
     public static final LogType UPDATED_TYPE = LogType.WARNING;
+    
 
     public static LoginDTO loginDTO() {
         LoginDTO loginDTO = new LoginDTO();
